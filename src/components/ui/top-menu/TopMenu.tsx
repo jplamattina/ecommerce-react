@@ -1,9 +1,15 @@
+'use client';
+
 import { titleFont } from "@/config/fonts"
+import { useUIStore } from "@/store"
 import Link from "next/link"
 
 import { IoSearchOutline, IoCartOutline } from "react-icons/io5"
 
 export const TopMenu = () => {
+
+  const openSideMenu = useUIStore( state => state.openSideMenu );
+
   return (
     <nav className='flex px-5 justify-between items-center w-full'>
         {/*Logo*/}
@@ -19,9 +25,9 @@ export const TopMenu = () => {
         </div>
         {/* center menu */}
         <div className="hidden sm:block">
-            <Link className="m-2 p2 rounded transition-all hover:bg-gray-100" href="/category/mens">Mens</Link>
-            <Link className="m-2 p2 rounded transition-all hover:bg-gray-100" href="/category/womans">womans</Link>
-            <Link className="m-2 p2 rounded transition-all hover:bg-gray-100" href="/category/kids">kids</Link>
+            <Link className="m-2 p2 rounded transition-all hover:bg-gray-100" href="/category/men">Men</Link>
+            <Link className="m-2 p2 rounded transition-all hover:bg-gray-100" href="/category/women">Women</Link>
+            <Link className="m-2 p2 rounded transition-all hover:bg-gray-100" href="/category/kid">Kids</Link>
         </div>
         {/*Search, Cart, Menu*/}
         <div className="flex items-center">
@@ -37,7 +43,9 @@ export const TopMenu = () => {
                 <IoCartOutline className="w-5 h-5" />
             </div>
         </Link>
-        <button className="m-2 p-2 rounded-md transition-all hover:bg-gray-100">
+        <button 
+            onClick={ openSideMenu }
+            className="m-2 p-2 rounded-md transition-all hover:bg-gray-100">
             Menú
         </button>
 

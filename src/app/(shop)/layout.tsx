@@ -3,7 +3,7 @@ export default function ShopLayout({children}: {
 }) {
     return (
         <main className="min-h-screen">
-            <div className="px-1 sm:px-10">
+            <div>
                 {children}
             </div>
         </main>

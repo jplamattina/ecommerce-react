@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { inter } from "@/config/fonts";
-import { TopMenu } from "@/components/ui/top-menu/TopMenu";
+import { SideBar, TopMenu } from "@/components";
 
 export const metadata: Metadata = {
   title: "Ecommerce",
@@ -19,6 +19,7 @@ export default function RootLayout({
         className={inter.className}
       >
         <TopMenu />
+        <SideBar />
         {children}
       </body>
     </html>
